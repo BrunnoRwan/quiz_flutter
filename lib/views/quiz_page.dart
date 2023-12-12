@@ -9,16 +9,15 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizState extends State<QuizPage> {
-  int questionIndex = 0;
-  final List<String> questions = [
-    'Pergunta 1',
-    'Pergunta 2',
-    'Pergunta 3',
-    'Pergunta 4',
-  ];
+  int quizIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    final Map<String, dynamic>? args =
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+
+    final List<Map<String, dynamic>> questions = args?['questions'] ?? [];
+
     return Scaffold(
       appBar: AppBar(
         title: const Center(
@@ -30,7 +29,7 @@ class _QuizState extends State<QuizPage> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Text(
-              questions[questionIndex],
+              questions[quizIndex]['pergunta'],
               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
             ),
             AnswerButton(

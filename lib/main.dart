@@ -13,7 +13,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MyApp());
-}
+} // ainda não implementa o cloud firetore
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Quiz',
-      theme: ThemeData(primaryColor: const Color.fromRGBO(58, 58, 60, 1.0)),
       initialRoute: '/HomePage',
       routes: {
         '/HomePage': (context) => const HomePage(),
